@@ -35,7 +35,7 @@ if which fzf >/dev/null 2>&1; then
         local directory_type query out
         directory_type=${DIRECTORY_TYPE:-"all"}
         query=""
-        while out=$(read_directory $directory_type | fzf --query="$query" --print-query --no-sort --ansi -e +m --expect=ctrl-c,ctrl-d,ctrl-s --preview="cat <<< {} | cmdpack 'sed -e \"s/^/[44m/\" -e \"s/$/[0m/\"' 'xargs $dotfiles/bin/unbuffer ls -G | head'" --preview-window=up:30%); do
+        while out=$(read_directory $directory_type | fzf --query="$query" --print-query --no-sort --ansi -e +m --expect=ctrl-c,ctrl-d,ctrl-s --preview="cat <<< {} | cmdpack 'sed -e \"s/^/[44m/\" -e \"s/$/[0m/\"' 'xargs unbuffer ls -G | head'" --preview-window=up:30%); do
             local key selected
             query=$(strutil line 1 <<< "$out")
             key=$(strutil line 2 <<< "$out")
@@ -65,7 +65,7 @@ if which fzf >/dev/null 2>&1; then
         local directory_type query out
         directory_type=${DIRECTORY_TYPE:-"all"}
         query=""
-        while out=$(read_directory $directory_type | fzf --query="$query" --print-query --no-sort --ansi -e +m --expect=ctrl-d,ctrl-s --preview="cat <<< {} | cmdpack 'sed -e \"s/^/[44m/\" -e \"s/$/[0m/\"' 'xargs $dotfiles/bin/unbuffer ls -G | head'" --preview-window=up:30%); do
+        while out=$(read_directory $directory_type | fzf --query="$query" --print-query --no-sort --ansi -e +m --expect=ctrl-d,ctrl-s --preview="cat <<< {} | cmdpack 'sed -e \"s/^/[44m/\" -e \"s/$/[0m/\"' 'xargs unbuffer ls -G | head'" --preview-window=up:30%); do
             local key selected
             query=$(strutil line 1 <<< "$out")
             key=$(strutil line 2 <<< "$out")
