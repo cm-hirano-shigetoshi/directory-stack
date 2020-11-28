@@ -15,7 +15,7 @@ function __add_directory_session() {
     fi
 }
 
-function chpwd_directory() {
+function chpwd() {
     builtin pwd >> $directory_all
     __add_directory_session
 }
