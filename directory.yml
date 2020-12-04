@@ -1,0 +1,8 @@
+base_task:
+    source: tac {{arg1}} | awk '!a[$0]++'
+    options:
+        - no-sort
+        - preview='unbuffer ls -l -G {}'
+        - preview-window='up:30%'
+        - bind='ctrl-s:toggle-sort'
+
