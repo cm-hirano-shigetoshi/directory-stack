@@ -1,8 +1,8 @@
 base_task:
     source: tac {{arg1}} | awk '!a[$0]++'
+    source_transform: python3 {{tool_dir}}/main/path.py -p absolute -t -s
     options:
         - no-sort
-        - preview='unbuffer ls -l -G {}'
+        - preview='unbuffer ls -l --color {}'
         - preview-window='up:30%'
-        - bind='ctrl-s:toggle-sort'
 
