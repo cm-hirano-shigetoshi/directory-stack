@@ -7,7 +7,7 @@ function chpwd() {
 }
 
 function fzf-cd() {
-    out=$(fzfyml3 run ${DIR_DIRECTORY}/directory.yml "$DIRECTORY_ALL")
+    out=$(fzfyml4 run ${DIR_DIRECTORY}/directory.yml "$DIRECTORY_ALL")
     if [[ -n $out ]]; then
         cd $out
     fi

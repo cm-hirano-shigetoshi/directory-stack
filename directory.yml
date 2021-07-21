@@ -1,8 +1,9 @@
 base_task:
     source: tac {{arg1}} | awk '!a[$0]++'
-    source_transform: python3 {{tool_dir}}/main/path.py -p absolute -t -s
+    source_transform: fzfyml4 path-tool -p absolute --tilde_home --slash
+    preview:
+      command: 'unbuffer ls -l --color {}'
+      window: 'up:30%'
     options:
         - no-sort
-        - preview='unbuffer ls -l --color {}'
-        - preview-window='up:30%'
 
