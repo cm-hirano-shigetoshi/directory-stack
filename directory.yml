@@ -1,8 +1,9 @@
 base_task:
     source: tac {{arg1}} | awk '!a[$0]++'
+    source_transform: fzfyml4 path-tool -p absolute --tilde_home --slash
+    preview:
+      command: 'unbuffer ls -l --color {} | sed 1d'
+      window: 'up:50%'
     options:
         - no-sort
-        - preview='unbuffer ls -l -G {}'
-        - preview-window='up:30%'
-        - bind='ctrl-s:toggle-sort'
 
